@@ -36,7 +36,7 @@ export const Login = async (req, res) => {
 
     if (!username || !password)
       return res.status(400).json({ error: "All fields required" });
-    const findUser = User.findOne({ username });
+    const findUser = await User.findOne({ username });
     if (!findUser)
       return res.status(401).json({ error: "this username not found" });
     const comparePassword = await bcrypt.compare(password, findUser.password);
@@ -44,7 +44,18 @@ export const Login = async (req, res) => {
       return res
         .status(401)
         .json({ error: "the username or password is wrong" });
-    // const
+    const accessToken = jwt.sign({ username }, process.env.ACCESS_TOKEN, {
+      expiresIn: "10s",
+    });
+    const refreshToken = jwt.sign({ username }, process.env.REFRESH_TOKEN, {
+      expiresIn: "1d",
+    });
+    res.cookie("jwt", refreshToken, {
+      httpOnly: true,
+      maxAge: 24 * 60 * 60 * 1000,
+      secure: false,
+    });
+    res.status(200).json({ message: "Login successfully" });
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: "Internal Server Error !!!" });
