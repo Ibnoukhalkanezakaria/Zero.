@@ -20,7 +20,10 @@ export const SignUp = async (req, res) => {
       username,
       password: hashedPassword,
       gender,
-      profilePic: `https://api.multiavatar.com/${username}`,
+      profilePic:
+        gender === "male"
+          ? `https://avatar.iran.liara.run/public/boy?username=${username}`
+          : `https://avatar.iran.liara.run/public/girl?username=${username}`,
     });
     await newUser.save();
     res.status(201).json({ message: "Registred Successfully" });
