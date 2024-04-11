@@ -55,9 +55,40 @@ export const Login = async (req, res) => {
       maxAge: 24 * 60 * 60 * 1000,
       secure: false,
     });
-    res.status(200).json({ message: "Login successfully" });
+    res.status(200).json({ accessToken });
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: "Internal Server Error !!!" });
   }
+};
+
+export const Refresh = (req, res) => {
+  const cookie = req.cookies;
+
+  if (!cookie || !cookie.jwt)
+    return res.status(401).json({ error: "Unauthorized" });
+  const refreshToken = cookie.jwt;
+  jwt.verify(refreshToken, process.env.REFRESH_TOKEN, async (err, decoded) => {
+    if (err) return res.status(403).json({ error: "Forbidden" });
+    const foundUser = await User.findOne({ username: decoded.username });
+    if (!foundUser) return res.status(401).json({ error: "Unauthorized" });
+    const accessToken = jwt.sign(
+      { username: decoded.username },
+      process.env.ACCESS_TOKEN,
+      {
+        expiresIn: "10s",
+      }
+    );
+    res.json({ accessToken });
+  });
+};
+
+export const Logout = (req, res) => {
+  const cookie = req.cookies;
+  if (!cookie || !cookie.jwt) return res.sendStatus(204);
+  res.clearCookie("jwt", {
+    httpOnly: true,
+    secure: false,
+  });
+  res.json({ message: "Cookie Cleared" });
 };
