@@ -41,7 +41,7 @@ export const Login = async (req, res) => {
       return res.status(400).json({ error: "All fields required" });
     const findUser = await User.findOne({ username });
     if (!findUser)
-      return res.status(401).json({ error: "this username not found" });
+      return res.status(404).json({ error: "this username not found" });
     const comparePassword = await bcrypt.compare(password, findUser.password);
     if (!comparePassword)
       return res
