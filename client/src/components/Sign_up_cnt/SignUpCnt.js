@@ -72,7 +72,7 @@ const SignUpCnt = () => {
                     />
                   </div>
                 </div>
-                <button>Log in</button>
+                <button>SignUp</button>
               </form>
             </div>
             <div>

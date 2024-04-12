@@ -7,20 +7,21 @@ const LogInCnt = () => {
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
-    console.log("nice");
     e.preventDefault();
     try {
       const user = await axios.post("http://localhost:3001/api/auth/login", {
         username,
         password,
       });
-      return "done";
+      console.log("Login Successfully");
     } catch (err) {
+      console.log(err.response.data.error);
       return err.response.data.error;
     }
   };
   return (
-    <div>Zero.
+    <div>
+      Zero.
       <div className="home">
         <div className="home-cnt bg-secondary-clr Wrapper">
           <nav className="nav-bar">
@@ -50,7 +51,7 @@ const LogInCnt = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <button>Sign Up</button>
+                <button>Login</button>
               </form>
             </div>
             <div>
