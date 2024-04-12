@@ -82,3 +82,18 @@
   /* width: 100%; */
   width: 326px;
 }
+
+.check {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hidden {
+  /* display: none; */
+  color: red;
+}
+.successfully {
+  /* display: block; */
+  color: green;
+}

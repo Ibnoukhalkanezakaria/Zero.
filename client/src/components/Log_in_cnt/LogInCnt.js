@@ -5,6 +5,12 @@ import { Link } from "react-router-dom";
 const LogInCnt = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [show, setShow] = useState(false);
+
+  const getResponse = async (e) => {
+    console.log(e);
+    // return e;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,15 +19,17 @@ const LogInCnt = () => {
         username,
         password,
       });
-      console.log("Login Successfully");
+      setShow("Login Successfully");
+      // return <Link to="/" />;
+      //  Link
     } catch (err) {
       console.log(err.response.data.error);
+      setShow(err.response.data.error);
       return err.response.data.error;
     }
   };
   return (
     <div>
-      Zero.
       <div className="home">
         <div className="home-cnt bg-secondary-clr Wrapper">
           <nav className="nav-bar">
@@ -51,7 +59,31 @@ const LogInCnt = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <button>Login</button>
+                <div className="check">
+                  <div>
+                    <p
+                      className={
+                        show === "Login Successfully"
+                          ? "successfully"
+                          : "hidden"
+                      }
+                    >
+                      {show}
+                    </p>
+                  </div>
+                  <div>
+                    <button
+                      onClick={() => setShow(!show)}
+                      // show={show}
+                      // setShow={setShow}
+                    >
+                      <Link>Login</Link>
+                      {/* {if(show){
+
+                      }} */}
+                    </button>
+                  </div>
+                </div>
               </form>
             </div>
             <div>
