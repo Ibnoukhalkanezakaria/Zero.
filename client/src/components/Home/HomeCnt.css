@@ -3,7 +3,7 @@
   /* align-items: flex-end; */
   /* justify-content: space-between; */
 
-  margin: auto;
+  /* margin: auto; */
 }
 
 .flex-end h1 {
@@ -15,11 +15,11 @@
 .home {
   margin: 2rem;
   /* background-color: red; */
-  position: relative;
+  /* position: relative;
   height: 800px;
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
+  justify-content: space-between; */
 }
 
 .scroll {
