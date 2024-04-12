@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LogInCnt = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
-
+  const navigate = useNavigate();
   const getResponse = async (e) => {
     console.log(e);
     // return e;
@@ -20,8 +20,7 @@ const LogInCnt = () => {
         password,
       });
       setShow("Login Successfully");
-      // return <Link to="/" />;
-      //  Link
+      navigate("/");
     } catch (err) {
       console.log(err.response.data.error);
       setShow(err.response.data.error);
@@ -72,16 +71,7 @@ const LogInCnt = () => {
                     </p>
                   </div>
                   <div>
-                    <button
-                      onClick={() => setShow(!show)}
-                      // show={show}
-                      // setShow={setShow}
-                    >
-                      <Link>Login</Link>
-                      {/* {if(show){
-
-                      }} */}
-                    </button>
+                    <button onClick={() => setShow(!show)}>Login</button>
                   </div>
                 </div>
               </form>
