@@ -41,20 +41,23 @@ const SignUpCnt = () => {
                   type="text"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
+                  required
                 />
                 <input
                   placeholder="Password"
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
                 <input
                   placeholder="Confirm Password"
                   type="password"
                   value={confirmPassword}
                   onChange={(e) => setconfirmPassword(e.target.value)}
+                  required
                 />
-                <div className="gender">
+                {/* <div className="gender">
                   <div>
                     <input
                       placeholder="Male"
@@ -71,7 +74,7 @@ const SignUpCnt = () => {
                       onChange={(e) => setconfirmPassword(e.target.value)}
                     />
                   </div>
-                </div>
+                </div> */}
                 <button>SignUp</button>
               </form>
             </div>
