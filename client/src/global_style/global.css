@@ -88,38 +88,31 @@ hr {
 
 /* font-size */
 
-.f1
-{
+.f1 {
   font-size: 67px;
 }
 
-.f2
-{
+.f2 {
   font-size: 51px;
 }
 
-.f3
-{
+.f3 {
   font-size: 38px;
 }
 
-.f4
-{
+.f4 {
   font-size: 28px;
 }
 
-.f5
-{
+.f5 {
   font-size: 22px;
 }
 
-.fbase
-{
+.fbase {
   font-size: 16px;
 }
 
-.fcaption
-{
+.fcaption {
   font-size: 12px;
 }
 
@@ -127,8 +120,8 @@ hr {
 .Wrapper {
   padding-inline: var(--rem-1);
   padding-block: 4rem;
-  /* margin: var(--rem-1); */
   border-radius: var(--radius-1);
+  height: 100%;
 }
 
 @media (max-width: 575px) {
