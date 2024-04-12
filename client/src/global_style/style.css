@@ -1,0 +1,24 @@
+.home {
+  background-color: red;
+  padding: var(--rem-2);
+  /* flex-direction: row; */
+}
+.home-cnt {
+  /* height: 100%; */
+  /* background-color: red; */
+}
+.main {
+  display: flex;
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 663px;
+}
+
+.btns button{
+    background-color: var(--primary-clr);
+    margin-block: var(--rem-2);
+}

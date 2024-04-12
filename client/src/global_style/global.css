@@ -1,0 +1,134 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+:root {
+  /* Colors */
+  --primary-clr: #ffffff;
+  --secondary-clr: #edede9;
+  --color3: #000000;
+  --color4: #affc41;
+  --max-width: 1520px;
+  --rem-1: 100px;
+  --rem-2: 2rem;
+  --radius-1: 60px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100vh;
+  width: 100%;
+}
+body {
+  font-family: "Space Mono", monospace;
+  font-size: 16px;
+  background-color: var(--primary-clr);
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+}
+button {
+  outline: none;
+  border: none;
+}
+
+hr {
+  border: 0;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+/* Classes */
+
+/* Colors */
+.primary-clr {
+  color: var(--primary-clr);
+}
+.secondary-clr {
+  color: var(--secondary-clr);
+}
+.color3 {
+  color: var(--color3);
+}
+.color4 {
+  color: var(--color4);
+}
+
+/* Background */
+
+.bg-primary-clr {
+  background-color: var(--primary-clr);
+}
+.bg-secondary-clr {
+  background-color: var(--secondary-clr);
+}
+.bg-color3 {
+  background-color: var(--color3);
+}
+.bg-color4 {
+  background-color: var(--color4);
+}
+
+/* font-size */
+
+.f1
+{
+  font-size: 67px;
+}
+
+.f2
+{
+  font-size: 51px;
+}
+
+.f3
+{
+  font-size: 38px;
+}
+
+.f4
+{
+  font-size: 28px;
+}
+
+.f5
+{
+  font-size: 22px;
+}
+
+.fbase
+{
+  font-size: 16px;
+}
+
+.fcaption
+{
+  font-size: 12px;
+}
+
+/* Wrapper */
+.Wrapper {
+  padding-inline: var(--rem-1);
+  padding-block: var(--rem-2);
+  /* margin: var(--rem-1); */
+  border-radius: var(--radius-1);
+}
+
+@media (max-width: 575px) {
+  .Wrapper {
+    width: min(var(--max-width), 100% - (var(--padding) * 1));
+  }
+}
