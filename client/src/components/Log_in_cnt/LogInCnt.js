@@ -7,16 +7,16 @@ const LogInCnt = () => {
 
   const handleSubmit = async (e) => {
     console.log("nice");
-//     e.preventDefault();
-//     // try {
-//     //   const user = await axios.post("http://localhost:3001/api/auth/login", {
-//     //     username,
-//     //     password,
-//     //   });
-//     //   return "done";
-//     // } catch (err) {
-//     //   return err.response.data.error;
-//     // }
+    e.preventDefault();
+    try {
+      const user = await axios.post("http://localhost:3001/api/auth/login", {
+        username,
+        password,
+      });
+      return "done";
+    } catch (err) {
+      return err.response.data.error;
+    }
   };
   return (
     <div>
