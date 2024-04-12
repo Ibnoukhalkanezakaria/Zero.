@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LogInCnt = () => {
   const [username, setUsername] = useState("");
@@ -32,9 +32,8 @@ const LogInCnt = () => {
       <div className="home">
         <div className="home-cnt bg-secondary-clr Wrapper">
           <nav className="nav-bar">
-            <h5 className="f5 logo">
-              {/* <Link to="/">Zero.</Link> */}
-              Zero.
+            <h5 className="f5">
+              <Link to="/">Zero.</Link>
             </h5>
           </nav>
           <main className="main">
