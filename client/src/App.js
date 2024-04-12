@@ -1,12 +1,26 @@
 import "./global_style/global.css";
 import "./global_style/normalize.css";
 import "./global_style/style.css";
+import React, { useState } from "react";
+import axios from "axios";
 
 function App() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    console.log("nice");
     e.preventDefault();
-  } 
+    try {
+      const user = await axios.post("http://localhost:3001/api/auth/login", {
+        username,
+        password,
+      });
+      return "done";
+    } catch (err) {
+      return err.response.data.error;
+    }
+  };
 
   return (
     <div className="App">
@@ -24,8 +38,18 @@ function App() {
                 </h3>
               </div>
               <form className="btns" onSubmit={handleSubmit}>
-                <input placeholder="Username" type="text"/>
-                <input placeholder="Password" type="password"/>
+                <input
+                  placeholder="Username"
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+                <input
+                  placeholder="Password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
                 <button>Sign in</button>
               </form>
             </div>
@@ -37,9 +61,7 @@ function App() {
             </div>
           </main>
           <div className="made">
-            <p className="fcaption">
-              Made by Ibnoukhalkane & Meedivo 2024
-            </p>
+            <p className="fcaption">Made by Ibnoukhalkane & Meedivo 2024</p>
           </div>
         </div>
       </div>
