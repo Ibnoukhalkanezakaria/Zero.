@@ -6,6 +6,7 @@ const SignUpCnt = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
+  const [show, setShow] = useState(false);
 
   console.log(username);
   console.log(password);
@@ -21,11 +22,12 @@ const SignUpCnt = () => {
         confirmPassword,
         gender: "male",
       });
-
+      setShow("Sign up successfully!!");
       console.log("Sign up successfully!!");
       return "Sign up successfully!!";
     } catch (err) {
       console.log(err.response.data.error);
+      setShow(err.response.data.error);
       return err.response.data.error;
     }
   };
@@ -86,7 +88,22 @@ const SignUpCnt = () => {
                     />
                   </div>
                 </div> */}
-                <button>SignUp</button>
+                <div className="check">
+                  <div>
+                    <p
+                      className={
+                        show === "Sign up successfully!!"
+                          ? "successfully"
+                          : "hidden"
+                      }
+                    >
+                      {show}
+                    </p>
+                  </div>
+                  <div>
+                    <button onClick={() => setShow(!show)}>signup</button>
+                  </div>
+                </div>
               </form>
             </div>
             <div>
