@@ -11,6 +11,9 @@
   display: flex;
   justify-content: space-between;
 }
+.logo {
+  cursor: pointer;
+}
 
 .main .firsth3 {
   /* background-color: red; */
@@ -20,6 +23,12 @@
   margin-bottom: 3rem;
 }
 
+.main .secondh3 {
+  width: 640px;
+  line-height: 65px;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
 .main .firsth4 {
   line-height: 40px;
   margin-right: 50px;
@@ -61,4 +70,15 @@
   justify-content: flex-end;
   color: var(--color3);
   margin-top: 5rem;
+}
+
+.gender {
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 0.5rem;
+}
+
+.gender input {
+  /* width: 100%; */
+  width: 326px;
 }

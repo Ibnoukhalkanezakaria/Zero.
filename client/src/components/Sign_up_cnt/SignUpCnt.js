@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const SignInCnt = () => {
+const SignUpCnt = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
@@ -9,16 +9,16 @@ const SignInCnt = () => {
   const handleSubmit = async (e) => {
     console.log("nice");
     e.preventDefault();
-        try {
-          const user = await axios.post("http://localhost:3001/api/auth/login", {
-            username,
-            password,
-            confirmPassword,
-          });
-          return "done";
-        } catch (err) {
-          return err.response.data.error;
-        }
+    try {
+      const user = await axios.post("http://localhost:3001/api/auth/login", {
+        username,
+        password,
+        confirmPassword,
+      });
+      return "done";
+    } catch (err) {
+      return err.response.data.error;
+    }
   };
   return (
     <div>
@@ -30,7 +30,7 @@ const SignInCnt = () => {
           <main className="main">
             <div>
               <div>
-                <h3 className="f3 firsth3">
+                <h3 className="f3 secondh3">
                   Reshaped the platform's user experience, making blockchain
                   technology more accessible.
                 </h3>
@@ -49,11 +49,29 @@ const SignInCnt = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 <input
-                  placeholder="confirmPassword"
+                  placeholder="Confirm Password"
                   type="password"
                   value={confirmPassword}
                   onChange={(e) => setconfirmPassword(e.target.value)}
                 />
+                <div className="gender">
+                  <div>
+                    <input
+                      placeholder="Male"
+                      type="password"
+                      // value={male}
+                      onChange={(e) => setconfirmPassword(e.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <input
+                      placeholder="Female"
+                      type="password"
+                      // value={male}
+                      onChange={(e) => setconfirmPassword(e.target.value)}
+                    />
+                  </div>
+                </div>
                 <button>Log in</button>
               </form>
             </div>
@@ -73,4 +91,4 @@ const SignInCnt = () => {
   );
 };
 
-export default SignInCnt;
+export default SignUpCnt;

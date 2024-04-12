@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const LogInCnt = () => {
   const [username, setUsername] = useState("");
@@ -19,11 +20,14 @@ const LogInCnt = () => {
     }
   };
   return (
-    <div>
+    <div>Zero.
       <div className="home">
         <div className="home-cnt bg-secondary-clr Wrapper">
           <nav className="nav-bar">
-            <h5 className="f5">Zero.</h5>
+            <h5 className="f5 logo">
+              {/* <Link to="/">Zero.</Link> */}
+              Zero.
+            </h5>
           </nav>
           <main className="main">
             <div>
@@ -46,7 +50,7 @@ const LogInCnt = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <button>Sign in</button>
+                <button>Sign Up</button>
               </form>
             </div>
             <div>
