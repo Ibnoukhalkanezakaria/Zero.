@@ -8,6 +8,9 @@
   --secondary-clr: #edede9;
   --color3: #000000;
   --color4: #affc41;
+  --color5: #0000003d;
+
+  /*  */
   --max-width: 1520px;
   --rem-1: 100px;
   --rem-2: 2rem;
@@ -41,6 +44,7 @@ img {
 button {
   outline: none;
   border: none;
+  cursor: pointer;
 }
 
 hr {
@@ -122,7 +126,7 @@ hr {
 /* Wrapper */
 .Wrapper {
   padding-inline: var(--rem-1);
-  padding-block: var(--rem-2);
+  padding-block: 4rem;
   /* margin: var(--rem-1); */
   border-radius: var(--radius-1);
 }

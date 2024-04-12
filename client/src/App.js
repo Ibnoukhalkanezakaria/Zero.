@@ -1,7 +1,6 @@
 import "./global_style/global.css";
 import "./global_style/normalize.css";
 import "./global_style/style.css";
-import styled from "styled-components";
 
 function App() {
   return (
@@ -14,34 +13,33 @@ function App() {
           <main className="main">
             <div>
               <div>
-                <h3 className="f3">
+                <h3 className="f3 firsth3">
                   Reshaped the platform's user experience, making blockchain
                   technology more accessible.
                 </h3>
               </div>
-              <div className="btns">
-                <button>username</button>
-                <button>Password</button>
+              <form className="btns">
+                <input placeholder="Username" />
+                <input placeholder="Password" />
                 <button>Sign in</button>
-              </div>
+              </form>
             </div>
             <div>
-              <h4 className="f4">p <br/> r <br/> o <br/> j <br/> e <br/> c <br/> t <br/> 0/</h4>
+              <h5 className="f5 firsth4">
+                p <br /> r <br /> o <br /> j <br /> e <br /> c <br /> t <br /> 0{" "}
+                <br /> /
+              </h5>
             </div>
           </main>
+          <div className="made">
+            <p className="fcaption">
+              Made by Ibnoukhalkane & Meedivo 2024
+            </p>
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
-const Hottun = styled.button`
-  background: transparent;
-  border-radius: 3px;
-  border: 2px solid #bf4f74;
-  color: #bf4f74;
-  margin: 0 1em;
-  padding: 0.25em 1em;
-`;
 
 export default App;
