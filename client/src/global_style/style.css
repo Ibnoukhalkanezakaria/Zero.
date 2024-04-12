@@ -34,7 +34,7 @@
 
 .btns input {
   background-color: var(--primary-clr);
-  padding: 2rem;
+  padding: 1.5rem;
   border: solid 1px var(--color5);
   border-radius: var(--radius-1);
   margin-bottom: 1rem;
@@ -58,5 +58,5 @@
   display: flex;
   justify-content: flex-end;
   color: var(--color3);
-  margin-top: 2rem;
+  margin-top: 5rem;
 }
