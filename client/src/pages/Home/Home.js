@@ -31,8 +31,9 @@ const Home = () => {
   }, []);
   return (
     <>
-      {error && <div>{error}</div>}
-      {user && <HomeCnt user={user} />}
+      {/* {error && <div>{error}</div>} */}
+      {/* {user && <HomeCnt user={user} />} */}
+      <HomeCnt />
     </>
   );
 };

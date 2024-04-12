@@ -7,16 +7,20 @@ axios.defaults.withCredentials = true;
 
 const HomeCnt = () => {
   return (
-    <div className="home">
-      <div className="bg-secondary-clr Wrapper ">
-        <div>
-          <h1 className="f1">
-            Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero
-            - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero -
-            Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero
-            - Zero - Zero - Zero - Zero -
-          </h1>
+    <div className="home bg-secondary-clr Wrapper ">
+      <div className="container">
+        <div className="scroll">
+          <div className="rightToLeft">
+            <h1>
+              Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero -
+              Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero -
+              Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero -
+              Zero - Zero - Zero - Zero - Zero - Zero -
+            </h1>
+          </div>
         </div>
+      </div>
+      <div className="">
         <div className="flex-end">
           <div>
             <p className="fcaption">Made by Ibnoukhalkane & Meedivo 2024</p>
