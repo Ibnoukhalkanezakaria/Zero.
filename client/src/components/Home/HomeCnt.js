@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import "./HomeCnt.css";
+axios.defaults.withCredentials = true;
 
 const HomeCnt = () => {
   return (

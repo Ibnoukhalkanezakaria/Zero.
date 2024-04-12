@@ -54,10 +54,9 @@ export const Login = async (req, res) => {
       expiresIn: "1d",
     });
     res.cookie("jwt", refreshToken, {
-      httpOnly: false,
+      httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,
-      // secure: false,
-      sameSite: "none",
+      secure: false,
     });
     res.status(200).json({ accessToken });
   } catch (err) {
