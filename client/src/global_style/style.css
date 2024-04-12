@@ -39,6 +39,7 @@
   border-radius: var(--radius-1);
   margin-bottom: 1rem;
   text-align: center;
+  border: none;
 }
 
 .btns input::placeholder {
