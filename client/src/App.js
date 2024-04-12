@@ -3,6 +3,11 @@ import "./global_style/normalize.css";
 import "./global_style/style.css";
 
 function App() {
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  } 
+
   return (
     <div className="App">
       <div className="home">
@@ -18,9 +23,9 @@ function App() {
                   technology more accessible.
                 </h3>
               </div>
-              <form className="btns">
-                <input placeholder="Username" />
-                <input placeholder="Password" />
+              <form className="btns" onSubmit={handleSubmit}>
+                <input placeholder="Username" type="text"/>
+                <input placeholder="Password" type="password"/>
                 <button>Sign in</button>
               </form>
             </div>

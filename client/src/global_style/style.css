@@ -40,10 +40,11 @@
   margin-bottom: 1rem;
   text-align: center;
   border: none;
+  border: solid 1px var(--color5);
 }
 
-.btns input::placeholder {
-  border: solid 1px var(--color5);
+.btns input:focus {
+  border: none;
 }
 
 .btns button {
