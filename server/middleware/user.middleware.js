@@ -2,11 +2,6 @@ import jwt from "jsonwebtoken";
 
 const verifyToken = (req, res, next) => {
   const authHeader = req.headers.authorization || req.headers.Authorization;
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> origin/main
   if (!authHeader?.startsWith("Bearer"))
     res.status(401).json({ error: "Unauthorized" });
   const accessToken = authHeader.split(" ")[1];

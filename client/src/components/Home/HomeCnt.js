@@ -47,7 +47,6 @@ const HomeCnt = () => {
       } catch (err) {
         if (percentage >= 100) {
           setShow(true);
-          // console.log("go")
           navigate("/login");
         }
       }

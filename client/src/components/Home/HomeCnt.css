@@ -2,15 +2,17 @@
   margin: 2rem;
   height: calc(100vh - 4rem);
   /* width: auto; */
-  /* display: none; */
+  display: none;
   display: flex;
   /* visibility: hidden; */
   /* justify-content: flex-end; */
   /* align-items: end; */
-  /* position: relative; */
+  position: relative;
   overflow: hidden;
   /* transition: 0.5s ease-in; */
   /* visibility: visible; */
+  /* background-color: brown; */
+  /* z-index: 999; */
 }
 
 .HomeCnt .flex-end {
@@ -41,7 +43,7 @@
   top: 0;
   white-space: nowrap;
   z-index: 9999;
-  /* transform: rotate(-12deg) translateY(-800px); */
+  transform: rotate(-12deg) translateY(-800px);
   animation: scroll-right infinite linear 30s;
 }
 
