@@ -1,7 +1,27 @@
 .LogIn {
-  margin: 2rem;
   height: calc(100vh - 4rem);
   width: auto;
+}
+
+.LogInHome {
+  padding: 2rem;
+  position: relative;
+  height: 100vh;
+}
+
+.LogInHome .loading {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: red; */
+  /* opacity: 0; */
+
+  transition: 0.5s;
+}
+.LogInHome .loading.hide {
+  display: none;
 }
 
 .LogInCnt {

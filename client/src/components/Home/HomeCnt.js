@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./HomeCnt.css";
+import { useNavigate } from "react-router";
+// import { unstable_HistoryRouter } from "react-router-dom";
 axios.defaults.withCredentials = true;
 
 const HomeCnt = () => {
   const [percentage, setPercentage] = useState(0);
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     const timer = setTimeout(
       () => {
@@ -23,9 +26,33 @@ const HomeCnt = () => {
         ? 10
         : 4
     );
-    if (percentage == 100) {
-      setShow(true);
-    }
+    const getProfile = async () => {
+      try {
+        const refreshTokenResponse = await axios.post(
+          "http://localhost:3001/api/auth/refresh"
+        );
+        const accessToken = refreshTokenResponse.data.accessToken;
+        const accessTokenResponse = await axios.get(
+          "http://localhost:3001/api/profile",
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        );
+        if (percentage >= 100) {
+          setShow(true);
+          navigate("/profile");
+        }
+      } catch (err) {
+        if (percentage >= 100) {
+          setShow(true);
+          // console.log("go")
+          navigate("/login");
+        }
+      }
+    };
+    getProfile();
   }, [percentage]);
   return (
     <div

@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./ProfileInCnt.css";
-import ThreeScene from "../threejs/torkus_cnt";
-
+// import ThreeScene from "../threejs/torkus_cnt";
 const ProfileInCnt = () => {
   const [useData, setUseData] = useState({});
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
+  const Logout = async () => {
+    await axios.get("http://localhost:3001/api/auth/logout");
+    navigate("/login");
+  };
 
   useEffect(() => {
     const getProfile = async () => {
@@ -42,7 +46,7 @@ const ProfileInCnt = () => {
           <nav className="nav-bar">
             <div>
               <h5 className="f5">
-                <Link to="/login" className="color3">
+                <Link to="/" className="color3">
                   Zero.
                 </Link>
               </h5>
@@ -56,11 +60,9 @@ const ProfileInCnt = () => {
                     Home -
                   </Link>
                 </h5>
-                <button>
-                  <Link to="/" className="color3">
-                    Logout
-                  </Link>
-                </button>
+                <div>
+                  <button onClick={Logout}>Logout</button>
+                </div>
               </div>
             </div>
           </nav>
