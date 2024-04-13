@@ -5,6 +5,7 @@
   display: flex;
   /* justify-content: flex-end; */
   align-items: end;
+  position: relative;
 }
 
 .HomeCnt .flex-end {
@@ -20,4 +21,42 @@
   padding: 0;
   line-height: 58px;
   font-size: 6rem;
+}
+
+.HomeCnt .scroll-right {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  z-index: 9999;
+  /* transform: rotate(-12deg) translateY(-800px); */
+  animation: scroll-right infinite linear 30s;
+}
+
+.HomeCnt .scroll-left {
+  position: absolute;
+  left: 0;
+  top: 10%;
+  white-space: nowrap;
+  z-index: 9999;
+  /* transform: rotate(-12deg) translateY(-800px); */
+  animation: scroll-left infinite linear 30s;
+}
+
+@keyframes scroll-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }

@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import "./HomeCnt.css";
 axios.defaults.withCredentials = true;
 
 const HomeCnt = () => {
-  let number = 100;
   const [percentage, setPercentage] = useState(0);
   const [show, setShow] = useState(false);
-
-  // percentage++;
   useEffect(() => {
     const timer = setTimeout(
       () => {
@@ -28,8 +23,6 @@ const HomeCnt = () => {
         ? 10
         : 4
     );
-
-    // return clearInterval(timer);
     if (percentage == 100) {
       setShow(true);
     }
@@ -40,9 +33,25 @@ const HomeCnt = () => {
         show ? "HomeCnt bg-color4 Wrapper" : "HomeCnt bg-secondary-clr Wrapper"
       }
     >
+      <div className="scroll-right">
+        <h1 className="f1 color3">
+          Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero -
+          Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero -
+          Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero -
+          Zero - Zero - Zero -{" "}
+        </h1>
+      </div>
+      <div className="scroll-left">
+        <h1 className="f1 color3">
+          Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero -
+          Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero -
+          Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero - Zero -
+          Zero - Zero - Zero -{" "}
+        </h1>
+      </div>
       <div className="flex-end">
         <div>
-          <p>Made by Ibnoukhalkane & Meedivo 2024</p>
+          <p className="color3">Made by Ibnoukhalkane & Meedivo 2024.</p>
         </div>
         <div>
           <h1 className="color3">/({percentage}%)</h1>
