@@ -8,6 +8,9 @@ const ProfileInCnt = () => {
   const [useData, setUseData] = useState({});
   const [show, setShow] = useState(false);
 
+  const Logout = async () => {
+    await axios.get("http://localhost:3001/api/auth/logout");
+  };
   useEffect(() => {
     const getProfile = async () => {
       try {
@@ -56,8 +59,8 @@ const ProfileInCnt = () => {
                     Home -
                   </Link>
                 </h5>
-                <button>
-                  <Link to="/" className="color3">
+                <button onClick={Logout}>
+                  <Link to="/login" className="color3">
                     Logout
                   </Link>
                 </button>
