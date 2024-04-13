@@ -1,0 +1,79 @@
+.LogIn {
+  margin: 2rem;
+  height: calc(100vh - 4rem);
+  width: auto;
+}
+
+.LogInCnt {
+}
+
+.LogInCnt .flex .hero-title {
+  line-height: 60px;
+  width: 620px;
+  margin-top: 8rem;
+}
+
+.LogInCnt form {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  width: 663px;
+}
+
+.LogInCnt form input {
+  background-color: var(--primary-clr);
+  padding: 1.5rem;
+  border: solid 1px var(--color5);
+  border-radius: var(--radius-1);
+  margin-bottom: 1rem;
+  text-align: center;
+  border: none;
+  border: solid 1px var(--color5);
+}
+
+.LogInCnt .flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.LogInCnt .flex .twobtn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.LogInCnt .flex .project0 {
+  line-height: 45px;
+  margin-top: -200px;
+  margin-right: 8rem;
+}
+
+.LogInCnt form .firstbtn {
+  background-color: var(--secondary-clr);
+  padding: 0.7rem;
+  width: 150px;
+  border: solid 1px var(--color3);
+  border-radius: var(--radius-1);
+  align-self: flex-end;
+  opacity: 50%;
+}
+
+.LogInCnt form .twobtn {
+  display: flex;
+}
+
+.LogInCnt form .secondbtn {
+  background-color: var(--color4);
+  padding: 0.7rem;
+  width: 150px;
+  border: solid 1px var(--color4);
+  border-radius: var(--radius-1);
+  align-self: flex-end;
+}
+
+.made_by {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 6rem;
+}

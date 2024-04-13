@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import "./LogInCnt.css";
 
 const LogInCnt = () => {
   const [username, setUsername] = useState("");
@@ -20,7 +21,7 @@ const LogInCnt = () => {
         password,
       });
       setShow("Login Successfully");
-      navigate("/");
+      navigate("/profile");
     } catch (err) {
       console.log(err.response.data.error);
       setShow(err.response.data.error);
@@ -28,23 +29,25 @@ const LogInCnt = () => {
     }
   };
   return (
-    <div>
-      <div className="home">
-        <div className="home-cnt bg-secondary-clr Wrapper">
+    <div className="LogIn">
+      <div className="LogInCnt Wrapper bg-secondary-clr">
+        <div className="">
           <nav className="nav-bar">
             <h5 className="f5">
-              <Link to="/">Zero.</Link>
+              <Link to="/" className="color3">
+                Zero.
+              </Link>
             </h5>
           </nav>
-          <main className="main">
+          <main className="flex">
             <div>
               <div>
-                <h3 className="f3 firsth3">
+                <h3 className="f3 hero-title">
                   Reshaped the platform's user experience, making blockchain
                   technology more accessible.
                 </h3>
               </div>
-              <form className="btns" onSubmit={handleSubmit}>
+              <form className="" onSubmit={handleSubmit}>
                 <input
                   placeholder="Username"
                   type="text"
@@ -57,7 +60,7 @@ const LogInCnt = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <div className="check">
+                <div className="flex">
                   <div>
                     <p
                       className={
@@ -69,20 +72,32 @@ const LogInCnt = () => {
                       {show}
                     </p>
                   </div>
-                  <div>
-                    <button onClick={() => setShow(!show)}>Login</button>
+                  <div className="twobtn">
+                    <div>
+                      <Link to="/signup">
+                        <button className="firstbtn">signup</button>
+                      </Link>
+                    </div>
+                    <div>
+                      <button
+                        onClick={() => setShow(!show)}
+                        className="secondbtn"
+                      >
+                        login
+                      </button>
+                    </div>
                   </div>
                 </div>
               </form>
             </div>
             <div>
-              <h5 className="f5 firsth4">
+              <h5 className="f5 color3 project0">
                 p <br /> r <br /> o <br /> j <br /> e <br /> c <br /> t <br /> 0{" "}
                 <br /> /
               </h5>
             </div>
           </main>
-          <div className="made">
+          <div className="made_by">
             <p className="fcaption">Made by Ibnoukhalkane & Meedivo 2024</p>
           </div>
         </div>
