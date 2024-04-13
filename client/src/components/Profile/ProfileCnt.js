@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./ProfileInCnt.css";
+import ThreeScene from "../threejs/torkus_cnt";
 
 const ProfileInCnt = () => {
   const [useData, setUseData] = useState({});
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     const getProfile = async () => {
@@ -45,34 +47,47 @@ const ProfileInCnt = () => {
                 </Link>
               </h5>
             </div>
-            <div className="bar">
-              <span>----</span>
-              <span>----</span>
+            <div className="bar" onClick={() => setShow(!show)}>
+              <span></span>
+              <span></span>
+              <div className={show ? "menu none" : "menu"}>
+                <h5 className="f5">
+                  <Link className="color3" to="/">
+                    Home -
+                  </Link>
+                </h5>
+                <button>
+                  <Link to="/" className="color3">
+                    Logout
+                  </Link>
+                </button>
+              </div>
             </div>
           </nav>
         </div>
         <main>
-          <div className="back-img">
-            <div className="profile-img">
+          <div className="info">
+            <div className="profileImg">
               <img src={useData.profilePic} />
             </div>
-          </div>
-          <div className="edit">
-            <button>Edit</button>
-          </div>
-          <div className="general-info">
-            <h3>General Informnation:</h3>
-            <div className="info">
-              <h5>Username/{useData.username}</h5>
-              <h5>Gender/{useData.gender}</h5>
+            <div className="title">
+              <h3>Meedivo</h3>
             </div>
-          </div>
-          <div className="end">
-            <div>
+            <div className="more-info">
+              <span>
+                I'm From Morocco. Status{" "}
+                <span style={{ display: "inline-block", color: "green" }}>
+                  Active
+                </span>
+              </span>
+              <span>{useData.gender}</span>
+            </div>
+            <div className="create">
               <p className="color3 fcaption">
                 Made by Ibnoukhalkane & Meedivo 2024.
               </p>
             </div>
+            {/* <ThreeScene /> */}
           </div>
         </main>
       </div>

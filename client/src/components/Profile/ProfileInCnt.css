@@ -11,65 +11,88 @@
 }
 
 .ProfileInCnt .nav-bar .bar {
+  /* cursor: pointer; */
+  /* background-color: red; */
+  width: 60px;
+  height: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   cursor: pointer;
+  position: relative;
+  /* gap: 2rem; */
 }
 
+.ProfileInCnt .nav-bar .bar .menu {
+  /* display: none; */
+  background-color: var(--color4);
+  min-width: 120px;
+  width: 250px;
+  position: absolute;
+  border-radius: 8px;
+  top: 30px;
+  left: -220px;
+  display: flex;
+  flex-direction: column;
+  /* padding: 4rem 2rem; */
+  padding: 2rem;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.ProfileInCnt .nav-bar .bar .menu.none {
+  display: none;
+  opacity: 0;
+}
+
+.ProfileInCnt .nav-bar .bar .menu button {
+  background-color: transparent;
+  padding: 1rem;
+  border: solid 1px var(--color3);
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+/* .ProfileInCnt .nav-bar .bar .menu button::hover {
+  /* opacity: 50; */
+/* background-color: red; */
+
 .ProfileInCnt .nav-bar .bar span {
+  /* display: block; */
+  background-color: var(--color3);
+  height: 2px;
+  width: 100%;
+}
+
+/* 
+
+.profile-img {
+} */
+
+.ProfileInCnt .info {
+  margin-top: 6rem;
+  /* background-color: red; */
+  /* height: calc(100vh - 4rem); */
+}
+
+.ProfileInCnt .profileImg {
+  width: 200px;
+}
+
+.ProfileInCnt .title {
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.ProfileInCnt .more-info span {
+  line-height: 35px;
   display: block;
 }
 
-.ProfileInCnt .back-img {
-  height: 218px;
-  background-color: var(--color5);
-  border-radius: var(--radius-1);
-  margin-top: 4rem;
-  position: relative;
-}
-
-.ProfileInCnt .back-img .profile-img {
+.create {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+  /* margin-top: auto; */
   /* background-color: red; */
-  height: 200px;
-  width: 200px;
-  border-radius: 50%;
-  position: absolute;
-  left: 5%;
-  bottom: -25%;
-}
-.ProfileInCnt .edit {
-  display: flex;
-  justify-content: flex-end;
-  margin: 2rem 4rem;
-}
-
-.ProfileInCnt .edit button {
-  background-color: var(--primary-clr);
-  border-radius: 8px;
-  padding: 1rem;
-  border: solid 1px var(--color3);
-  width: 126px;
-}
-
-.ProfileInCnt .general-info {
-  background-color: var(--primary-clr);
-  height: 288px;
-  width: 500px;
-  border-radius: var(--radius-1);
-  /* margin-top: 8rem; */
-  padding: 3rem;
-}
-
-.ProfileInCnt .general-info .info {
-  margin-top: 1rem;
-}
-
-.ProfileInCnt .general-info .info h5 {
-  /* margin-top: 1rem; */
-  color: var(--color5);
-  margin-bottom: 0.7rem;
-}
-
-.ProfileInCnt .end {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 3rem;
 }
