@@ -13,7 +13,7 @@ router.post("/signup", SignUp);
 router.post("/login", Login);
 router.post("/refresh", Refresh);
 router.get("/logout", Logout);
-router.get("/home", verifyToken, (req, res) => {
+router.get("/home", (req, res) => {
   res.json(req.username);
 });
 export { router as UserRouter };

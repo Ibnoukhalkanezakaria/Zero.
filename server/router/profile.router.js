@@ -4,6 +4,6 @@ import { GetProfile } from "../controller/profile.controller.js";
 const router = express.Router();
 
 router.use(verifyToken);
-router.get("/", GetProfile);
+router.get("/", verifyToken, GetProfile);
 
 export { router as ProfileRouter };
