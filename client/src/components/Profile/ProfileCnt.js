@@ -12,6 +12,9 @@ const ProfileInCnt = () => {
     navigate("/login");
   };
 
+  const Logout = async () => {
+    await axios.get("http://localhost:3001/api/auth/logout");
+  };
   useEffect(() => {
     const getProfile = async () => {
       try {
@@ -60,9 +63,17 @@ const ProfileInCnt = () => {
                     Home -
                   </Link>
                 </h5>
+<<<<<<< HEAD
                 <div>
                   <button onClick={Logout}>Logout</button>
                 </div>
+=======
+                <button onClick={Logout}>
+                  <Link to="/login" className="color3">
+                    Logout
+                  </Link>
+                </button>
+>>>>>>> origin/main
               </div>
             </div>
           </nav>
