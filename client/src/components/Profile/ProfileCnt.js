@@ -42,7 +42,7 @@ const ProfileInCnt = () => {
           <nav className="nav-bar">
             <div>
               <h5 className="f5">
-                <Link to="/" className="color3">
+                <Link to="/login" className="color3">
                   Zero.
                 </Link>
               </h5>

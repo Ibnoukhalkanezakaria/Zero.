@@ -34,7 +34,7 @@ const LogInCnt = () => {
         <div className="">
           <nav className="nav-bar">
             <h5 className="f5">
-              <Link to="/" className="color3">
+              <Link to="/login" className="color3">
                 Zero.
               </Link>
             </h5>
