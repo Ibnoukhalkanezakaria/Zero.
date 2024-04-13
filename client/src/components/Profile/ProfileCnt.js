@@ -34,23 +34,47 @@ const ProfileInCnt = () => {
   }, []);
 
   return (
-    <div className="LogIn">
-      <div className="LogInCnt Wrapper bg-secondary-clr">
+    <div className="Profile">
+      <div className="ProfileInCnt Wrapper bg-secondary-clr">
         <div className="">
           <nav className="nav-bar">
-            <h5 className="f5">
-              <Link to="/" className="color3">
-                Zero.
-              </Link>
-            </h5>
+            <div>
+              <h5 className="f5">
+                <Link to="/" className="color3">
+                  Zero.
+                </Link>
+              </h5>
+            </div>
+            <div className="bar">
+              <span>----</span>
+              <span>----</span>
+            </div>
           </nav>
-          <img src={useData.profilePic} alt="image" />
-          <h1>username: {useData.username}</h1>
-          <h1>gender: {useData.gender}</h1>
-          <button>
-            <Link to="/login">Logout</Link>
-          </button>
         </div>
+        <main>
+          <div className="back-img">
+            <div className="profile-img">
+              <img src={useData.profilePic} />
+            </div>
+          </div>
+          <div className="edit">
+            <button>Edit</button>
+          </div>
+          <div className="general-info">
+            <h3>General Informnation:</h3>
+            <div className="info">
+              <h5>Username/{useData.username}</h5>
+              <h5>Gender/{useData.gender}</h5>
+            </div>
+          </div>
+          <div className="end">
+            <div>
+              <p className="color3 fcaption">
+                Made by Ibnoukhalkane & Meedivo 2024.
+              </p>
+            </div>
+          </div>
+        </main>
       </div>
     </div>
   );

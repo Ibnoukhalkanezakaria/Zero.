@@ -51,7 +51,9 @@ const HomeCnt = () => {
       </div>
       <div className="flex-end">
         <div>
-          <p className="color3">Made by Ibnoukhalkane & Meedivo 2024.</p>
+          <p className="color3 fcaption">
+            Made by Ibnoukhalkane & Meedivo 2024.
+          </p>
         </div>
         <div>
           <h1 className="color3">/({percentage}%)</h1>
