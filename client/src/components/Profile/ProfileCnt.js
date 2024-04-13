@@ -50,7 +50,7 @@ const ProfileInCnt = () => {
             <div className="bar" onClick={() => setShow(!show)}>
               <span></span>
               <span></span>
-              <div className={show ? "menu none" : "menu"}>
+              <div className={show ? "menu" : "menu none"}>
                 <h5 className="f5">
                   <Link className="color3" to="/">
                     Home -
@@ -71,7 +71,7 @@ const ProfileInCnt = () => {
               <img src={useData.profilePic} />
             </div>
             <div className="title">
-              <h3>Meedivo</h3>
+              <h3>{useData.username}</h3>
             </div>
             <div className="more-info">
               <span>

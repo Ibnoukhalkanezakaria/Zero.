@@ -75,6 +75,10 @@
   /* height: calc(100vh - 4rem); */
 }
 
+.ProfileInCnt .info .title {
+  /* text-transform: ; */
+}
+
 .ProfileInCnt .profileImg {
   width: 200px;
 }
