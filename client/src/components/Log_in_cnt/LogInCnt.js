@@ -1,19 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./LogInCnt.css";
-import HomeCnt from "../Home/HomeCnt";
 
 const LogInCnt = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
-  const [hide, setHide] = useState(false);
   const navigate = useNavigate();
-  const getResponse = async (e) => {
-    console.log(e);
-    // return e;
-  };
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        // Attempt to refresh the token to check if the user is logged in
+        const refreshTokenResponse = await axios.post(
+          "http://localhost:3001/api/auth/refresh"
+        );
+        const accessToken = refreshTokenResponse.data.accessToken;
+        await axios.get("http://localhost:3001/api/profile", {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        // If the user is logged in, redirect to profile
+        navigate("/profile");
+      } catch (err) {
+        console.log("Not logged in:", err);
+        // If not logged in, do nothing and let the user see the login form
+      }
+    };
+
+    checkAuth();
+  }, [navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,6 +48,7 @@ const LogInCnt = () => {
       return err.response.data.error;
     }
   };
+
   return (
     <div className="LogInHome">
       <div className="LogIn">

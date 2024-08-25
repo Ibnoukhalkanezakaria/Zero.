@@ -1,31 +1,58 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./SignUpCnt.css";
 
 const SignUpCnt = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        // Attempt to refresh the token to check if the user is logged in
+        const refreshTokenResponse = await axios.post(
+          "http://localhost:3001/api/auth/refresh"
+        );
+        const accessToken = refreshTokenResponse.data.accessToken;
+        await axios.get("http://localhost:3001/api/profile", {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        // If the user is logged in, redirect to profile
+        navigate("/profile");
+      } catch (err) {
+        console.log("Not logged in:", err);
+        // If not logged in, do nothing and let the user see the signup form
+      }
+    };
+
+    checkAuth();
+  }, [navigate]);
 
   const handleSubmit = async (e) => {
-    console.log("nice");
     e.preventDefault();
+    if (password !== confirmPassword) {
+      setShow("Passwords do not match!");
+      return;
+    }
     try {
-      const user = await axios.post("http://localhost:3001/api/auth/signup", {
+      await axios.post("http://localhost:3001/api/auth/signup", {
         username,
         password,
         confirmPassword,
         gender: "male",
       });
       setShow("Sign up successfully!!");
-      return "Sign up successfully!!";
     } catch (err) {
       setShow(err.response.data.error);
-      return err.response.data.error;
     }
   };
+
   return (
     <div className="SignIn">
       <div className="SignInCnt Wrapper bg-secondary-clr">
@@ -45,7 +72,7 @@ const SignUpCnt = () => {
                   technology more accessible.
                 </h3>
               </div>
-              <form className="" onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit}>
                 <input
                   placeholder="Username"
                   type="text"
@@ -78,11 +105,11 @@ const SignUpCnt = () => {
                   </div>
                   <div className="twobtn">
                     <div className="secondbtn">
-                      <button onClick={() => setShow(!show)}>signup</button>
+                      <button type="submit">Signup</button>
                     </div>
                     <div className="firstbtn">
                       <Link to="/login">
-                        <button onClick={() => setShow(!show)}>login</button>
+                        <button>Login</button>
                       </Link>
                     </div>
                   </div>
