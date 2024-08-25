@@ -2,57 +2,54 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./HomeCnt.css";
 import { useNavigate } from "react-router";
-// import { unstable_HistoryRouter } from "react-router-dom";
 axios.defaults.withCredentials = true;
 
 const HomeCnt = () => {
   const [percentage, setPercentage] = useState(0);
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
+
   useEffect(() => {
     const timer = setTimeout(
       () => {
         if (percentage < 100) {
           setPercentage(percentage + 1);
         } else {
-          clearInterval(timer);
+          clearTimeout(timer);
         }
       },
-      percentage < 1
-        ? 1200
-        : percentage > 1 && percentage < 25
-        ? 20
-        : percentage > 25 && percentage < 45
-        ? 10
-        : 4
+      percentage < 1 ? 1200 : percentage < 25 ? 20 : percentage < 45 ? 10 : 4
     );
+
     const getProfile = async () => {
       try {
         const refreshTokenResponse = await axios.post(
           "http://localhost:3001/api/auth/refresh"
         );
         const accessToken = refreshTokenResponse.data.accessToken;
-        const accessTokenResponse = await axios.get(
-          "http://localhost:3001/api/profile",
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
+        await axios.get("http://localhost:3001/api/profile", {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+
         if (percentage >= 100) {
           setShow(true);
           navigate("/profile");
         }
       } catch (err) {
-        if (percentage >= 100) {
-          setShow(true);
-          navigate("/login");
-        }
+        console.error("Authorization failed:", err);
+        // Redirect to login immediately if there's an error
+        navigate("/login");
       }
     };
+
     getProfile();
-  }, [percentage]);
+
+    // Cleanup timeout on component unmount
+    return () => clearTimeout(timer);
+  }, [percentage, navigate]);
+
   return (
     <div
       className={

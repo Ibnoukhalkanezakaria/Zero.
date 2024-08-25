@@ -2,15 +2,18 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./ProfileInCnt.css";
-// import ThreeScene from "../threejs/torkus_cnt";
+
 const ProfileInCnt = () => {
   const [useData, setUseData] = useState({});
+  const [loading, setLoading] = useState(true); // Loading state
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
+
   const Logout = async () => {
     await axios.get("http://localhost:3001/api/auth/logout");
     navigate("/login");
   };
+
   useEffect(() => {
     const getProfile = async () => {
       try {
@@ -31,12 +34,20 @@ const ProfileInCnt = () => {
           gender: accessTokenResponse.data.user.gender,
           profilePic: accessTokenResponse.data.user.profilePic,
         });
+
+        // Add 2-second loading delay
+        setTimeout(() => {
+          setLoading(false); // Stop loading after 2 seconds
+        }, 2000);
       } catch (err) {
         console.error("ERROR", err);
+        setLoading(false); // Stop loading even if there's an error
+        navigate("/login"); // Redirect to login page if there's an error
       }
     };
+
     getProfile();
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="Profile">
@@ -69,29 +80,33 @@ const ProfileInCnt = () => {
           </nav>
         </div>
         <main>
-          <div className="info">
-            <div className="profileImg">
-              <img src={useData.profilePic} />
-            </div>
-            <div className="title">
-              <h3>{useData.username}</h3>
-            </div>
-            <div className="more-info">
-              <span>
-                I'm From Morocco. Status{" "}
-                <span style={{ display: "inline-block", color: "green" }}>
-                  Active
+          {loading ? (
+            <div className="loading">Loading...</div> // Loading effect
+          ) : (
+            <div className="info">
+              <div className="profileImg">
+                <img src={useData.profilePic} alt="Profile" />
+              </div>
+              <div className="title">
+                <h3>{useData.username}</h3>
+              </div>
+              <div className="more-info">
+                <span>
+                  I'm From Morocco. Status{" "}
+                  <span style={{ display: "inline-block", color: "green" }}>
+                    Active
+                  </span>
                 </span>
-              </span>
-              <span>{useData.gender}</span>
+                <span>{useData.gender}</span>
+              </div>
+              <div className="create">
+                <p className="color3 fcaption">
+                  Made by Ibnoukhalkane & Meedivo 2024.
+                </p>
+              </div>
+              {/* <ThreeScene /> */}
             </div>
-            <div className="create">
-              <p className="color3 fcaption">
-                Made by Ibnoukhalkane & Meedivo 2024.
-              </p>
-            </div>
-            {/* <ThreeScene /> */}
-          </div>
+          )}
         </main>
       </div>
     </div>

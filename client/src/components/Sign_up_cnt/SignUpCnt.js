@@ -77,13 +77,13 @@ const SignUpCnt = () => {
                     </p>
                   </div>
                   <div className="twobtn">
+                    <div className="secondbtn">
+                      <button onClick={() => setShow(!show)}>signup</button>
+                    </div>
                     <div className="firstbtn">
                       <Link to="/login">
                         <button onClick={() => setShow(!show)}>login</button>
                       </Link>
-                    </div>
-                    <div className="secondbtn">
-                      <button onClick={() => setShow(!show)}>signup</button>
                     </div>
                   </div>
                 </div>

@@ -77,17 +77,17 @@ const LogInCnt = () => {
                     </div>
                     <div className="twobtn">
                       <div>
-                        <Link to="/signup">
-                          <button className="firstbtn">signup</button>
-                        </Link>
-                      </div>
-                      <div>
                         <button
                           onClick={() => setShow(!show)}
                           className="secondbtn"
                         >
                           login
                         </button>
+                      </div>
+                      <div>
+                        <Link to="/signup">
+                          <button className="firstbtn">signup</button>
+                        </Link>
                       </div>
                     </div>
                   </div>
